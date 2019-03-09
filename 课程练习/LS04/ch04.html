@@ -1,0 +1,92 @@
+<!DOMTYPE html>
+<html>
+    <head>
+        <title>ch04demo</title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+
+        <script>
+            if(true){
+                var username = "zhangsan";
+            }
+            console.log(username);
+
+            if(false){
+                var username1 = "lisi";
+            }
+            console.log(username1);//undefined
+
+            for(var i = 0;i <3; i++){
+            }
+            console.log(i);//3
+
+            function fn2(){
+                username = "zh";
+            }
+            fn2();
+            console.log(username);//z
+
+            function fn2(){
+                'use strict'
+                username = "z";
+            }
+            fn2();
+            console.log(username);//z
+
+            function fn3(){
+                console.log(this);
+            }
+            fn3();
+
+            function fn4(){
+                'use strict'
+                console.log(this);
+            }
+            fn4();
+
+            // 'use strict'
+            // function judge(){
+            //     var result = (this === undefined?true:false);
+            //     return result;
+            // }
+            // if(judge()){
+            //     console.log("严格模式");
+            // }else{
+            //     console.log("非严格模式");
+            // }
+
+            // var str = "abcdefg";
+            // str.length = 1;
+            // console.log(str.length);//报错
+
+            var index = 1;
+            switch(index){
+                case 1:
+                    console.log("aaa");
+                    break;
+                case 2:
+                    console.log("b");
+                    break;
+                default:
+                    console.log("c");
+                    break;
+            }
+
+            var index = 2;
+            switch(index){
+                case 1:
+                    console.log("a");
+                case 2:
+                    console.log("b");
+                case 3:
+                    console.log("c");
+                case 4:
+                    console.log("d");
+                    break;
+                case 5:
+                    console.log("e");
+            }
+        </script>
+    </body>
+</html>

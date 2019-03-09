@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>ch02</title>
+</head>
+<body>
+
+
+<script>
+    var obj1 = {"username":"zhangsan"};
+	var obj2 = obj1;//指向同一个堆区
+	obj2.username = "lisi";
+	console.log(obj1);//{username:"lisi"}
+    
+    var arr1=[1,2,3,4,5];
+    var arr2 = arr1;
+    arr2[0]=0;
+    console.log(arr1[0]);//0
+
+    var obj3 = {"username":"zhangsan"};
+    var obj4 = {};
+    var username = obj3.username;
+    obj4.username = username;//仅是内容一样，无关系
+
+    var num3 = 10;
+    var num4 = 10;
+    console.log(num3 == num4);//true
+
+//引用类型  判断指向的内存空间是否相同
+    var obj5 = {};
+    var obj6 = {};
+    console.log(obj5 == obj6);//false
+
+//值的传参，不影响数值得值
+    var a = 6;
+    function fn1(x){
+        x = 5;
+    }
+    fn1(a);
+    console.log(a);//6
+
+//引用数据类型传参，按引用传递
+    var obj7 = {"username":"zhangsan"};
+    function fn1(x){
+        x.username = "lisi";
+    }
+    fn1(obj7);
+    console.log(obj7);//{username:"lisi"}
+
+
+    var str = "ab-cd-ef";
+    console.log(str.slice(0,3));//ab- 
+    console.log(str.slice(0,-1));//ab-cd-e
+
+    var str0 ="abfsjh";
+    var strObg = new String(str0);
+    console.log(strObg.length);
+</script>
+</body>
+</html>
