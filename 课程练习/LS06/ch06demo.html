@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ch06demo</title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+
+        <script>
+            console.log(2>1 && 4<5);
+            console.log(true && (!2));
+            console.log(false && ('2'==2));
+            console.log(false && false);
+            //true false false false
+
+            console.log(2>1 || 4<5);
+            console.log(true || (!2));
+            console.log(false || ('2'==2));
+            console.log(false || false);
+            //false true true true
+
+            //实际应用
+            var score = 65;
+            console.log((score>90&&'优')||(score>75&&"良")||
+            (score>60&&'及格')||'不及格');
+
+            function sum(x,y,z){
+                x=x||1;
+                y=y||2;
+                z=z||3;
+                return x+y+z;
+            }
+            console.log(sum(false,false,false));//0
+
+            //ES6设置参数的默认值
+            function sum(x=1,y=2,z=3){
+                return x+y+z;
+            }
+            console.log(sum(4,5,6));//15
+            
+
+
+        </script>
+    </body>
+</html>

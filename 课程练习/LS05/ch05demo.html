@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>ch05demo</title>
+    <meta charset="utf-8" />
+    
+</head>
+
+<body>
+    <script>
+        var obj = {"username":"zhangsan","age":20};
+        obj.__proto__.sex = "male";
+        console.log(obj);
+        //for in 遍历的是对象的所有可枚举属性
+        for(var i in obj){
+            console.log("键名"+i);
+            //obj[变量]
+            console.log("键值"+obj[i]);
+        }
+//不建议用 for...in...遍历数组
+        var arr1 = [1,2,3];
+        for(var j in arr1){
+            console.log(j);
+        }
+//ch05
+        var a = 45;
+        if(a = 54){          //代码写错 判断写为赋值  会输出54
+            console.log(a);
+        }
+        // var a = 45;
+        // if(45 = a){          //报错
+        //     console.log(a);
+        // }
+        var a = 45;
+        if(45 == a){          //输出45
+            console.log(a);
+        }
+
+        var x = '1';
+        //++x 先加
+        //x++ 后加
+        //++ -- 自动转换为数值类型
+        console.log(++x);//2
+
+        console.log('3' == 3);
+        console.log('3' === 3);
+
+        
+    </script>
+</body>
+</html>
