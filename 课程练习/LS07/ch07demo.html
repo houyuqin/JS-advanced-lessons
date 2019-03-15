@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//三种函数声明方式
+        //函数声明  解释时function函数提到最上边
+        console.log(max(2,3));
+        function max(a,b){
+            return a > b?a:b;
+        }//3
+        
+        //函数表达式   仅会把var min 提升，但不会把函数提到最上边
+        //不能在min的声明前调用函数min（）函数
+        var min = function(x,y){
+            return x>y?y:x;
+        }
+        console.log(min(1,2));//1
+
+        //通过function的构造函数实例化函数
+        //执行效率相对较低，但是更加灵活
+        //Function(arg1,arg2,arg3,...,"函数体")；
+        var f1 = new Function('a','b','return a > b?a:b');
+        var str = f1(2,3);
+        console.log(str);//3
+
+//四种函数调用方式
+        //作为函数直接调用
+        function test(){
+            console.log(this);
+        }
+        test();//window
+
+        //作为方法调用
+        var obj = {
+            x:0,
+            test:function(){
+                console.log(this);
+            }
+        }
+        obj.test();//object 对象内部
+
+        //通过call（）或者play（）间接调用
+        var obj1 = {'objName':'aaa'};
+        var obj2 = {'objName':'bbb'};
+        obj1.test = function(){
+            console.log(this.objName);
+        }
+        obj1.test();//aaa
+        obj1.test.call(obj2);//bbb 
+            //将方法的调用执行从原有对象切换到当前对象，此时obj2调用方法
+
+       //作为构造函数调用（this为实例出来的对象）
+        function Person(username){
+            this.username = username;
+        }
+        Person.prototype.sayHi= function(){
+            console.log(this.username);
+        }
+        var person = new Person('zhangsan');
+        var per = new Person('lisi');
+        console.log(person,per);
+            //Person {username: "zhangsan"} Person {username: "lisi"}username: "lisi"__proto__: Object
+
+//this
+        function test(){
+            console.log(this);
+        }
+        test();//window
+
+        function test1(){
+            'use strict'
+            console.log(this);
+        }
+        test1();//undefined
+
+        function test1(){
+            'use strict'
+            console.log(this);
+            return 1;
+        }
+        test1();//undefined
+
+    //对象内部调用，this指向调用方法的对象
+        var obj = {
+            x:0,
+            test:function(){
+                console.log(this);
+            }
+        }
+        obj.test();//object 对象内部
+    </script>
+</body>
+</html>

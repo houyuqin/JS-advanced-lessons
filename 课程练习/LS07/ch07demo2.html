@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//函数的参数问题
+    //形参大于实参 ，未传参的默认为undefined
+    function sum(x,y,z){
+        return x+y+z;
+    }
+    console.log(sum(1,2));//NAN
+    //实参大于形参
+    function test(){
+        console.log(arguments);
+    }
+    test("hello,","world");
+
+    function test1(){
+        var s = '';
+        for(var i = 0;i < arguments.length;i++){
+            s += arguments[i];
+        }
+        console.log(s);
+    }
+    test1("hello,","world");
+    test1("hello,","world",'!',"i ","like the world.");
+
+</script>
+</body>
+</html>
