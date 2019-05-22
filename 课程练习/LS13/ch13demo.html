@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    var o = {
+        x:1,
+        get x(){
+            return this._x;
+        },
+        set x(val){
+            if(0<x&&x<150){
+                this._x = val;
+            }
+            else{
+                
+            }
+            
+        }
+    }
+    o.x = 10;
+    console.log(o._x,o.x);
+
+
+</script>
+</html>

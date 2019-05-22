@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // var obj1 = {z:1};
+    // var obj2=Object.create(obj1);
+    // console.log(obj2.__proto__==obj1);
+    // obj2.z=3;
+    // console.log(obj2.z);
+    // /*delete 操作尽可以删除自身对象上的属性，继承的属性没办法删掉*/
+    // delete obj2.z;
+    // console.log(obj2.z);
+    // obj2.hasOwnProperty('z');
+
+    // var obj1={z:1};
+    // var obj2 = Object.create(obj1);
+    // Object.prototype.sayHello = function(){
+    //     console.log("hello world");
+    // }
+    // console.log(obj2.sayHello);
+
+    // console.log(obj2.__proto__);
+    // console.log(obj2.__proto__.__proto__);
+    // console.log(Object.prototype);
+    // //Object.prototype.__proto__ ==null 此时原型链到头
+    // console.log(obj2.__proto__.__proto__.__proto__);
+
+    // function Person(username,age){
+    //     this.username = username;
+    //     this.age = age;
+    //     // this.sayHi = function(){
+    //     //     console.log("hi");
+    //     // }
+    // }
+    // //节省内存空间
+    // Person.prototype.sayHi = function(){
+    //     console.log("hi");
+    // }
+    // var person1 = new Person("zhangsan",20);
+    // var person2 = new Person("lisi",10);
+    // console.log(person1.__proto__ == Person.prototype);
+    // console.log(person1,person2);
+    // person1.sayHi();
+    // person2.sayHi();
+    // console.log(Object.prototype.constructor==Object);
+
+    
+    var car = {
+        height:150,
+        width:200,
+        weight:2000
+    };
+    var smallCar = Object.create(car);
+    smallCar.color="red";
+    smallCar.seatNum=4;
+    console.log(smallCar.height,smallCar.width);
+    console.log(smallCar.color);
+
+    function CreateSmallCar(color,seatNum){
+        this.color = color;
+        this.seatNum = seatNum;
+    }
+</script>
+</html>

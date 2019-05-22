@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        if(true){
+            var a = 1;
+        }
+        console.log(a);//1
+
+        if(false){
+            var b = 2;
+        }
+        console.log(b);//undefined
+        //var b; 提升，false时赋值，所以不赋值
+
+        function fn1(){
+            //函数内部的预解析，在函数作用域内进行提升
+            console.log(b);
+            var b = 2;
+        }
+        fn1();
+
+        //限定在作用域范围内进行提升
+        function fn2(){
+            fn3()
+            function fn3(){
+                console.log("hello");
+            }
+        }
+        fn2();//hello
+ //       fn3();//报错
+
+        var a= 1;
+        var b =2;
+        function fn4(){
+            var b=3;//没有var时生成的是全局变量
+            var d=4;
+            console.log(b);
+            function fn5(){
+                var b=5;
+                var e=6;
+            }
+            fn5();
+        }
+        fn4();//3
+        console.log(b);//2
+
+//作用域的静态性：只要完成函数定义，变量的定义域就是确定的
+        var username = "jack";
+        function bar(){
+            var username = "bili";
+            foo();
+        }
+        function foo(){
+            console.log(username);
+        }
+        bar();//jack
+
+        console.log(x);//undefined
+        if(true){
+            var x=1;
+        }
+
+        //执行上下文
+        var b=2;
+        var a=1;
+        function f1(){
+            var c=3;
+            var d=4;
+            function f2(){
+                var e=5;
+                var f=6;
+            }
+            f2();
+        }
+        f1();
+        
+    </script>
+</body>
+</html>

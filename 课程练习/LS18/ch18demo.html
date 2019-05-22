@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // var arr1 = [1,2,3,4];
+    // var arr2 = arr1;
+    // arr1[0] = 5;
+    // console.log(arr2);
+
+    //  var arr1 = [1,2,3,4,5];
+    //  console.log(arr1.length);
+    //  Array.prototype.min = "拓展属性";
+    //  //遍历数组的过程中需要注意
+    //  for(i in arr1){
+    //      console.log(i,arr1[i]);
+    //  }
+
+// //多维数组
+//     var table = new Array(5);
+//     for(var i=0;i<table.length;i++){
+//         table[i] = new Array(5);
+//     }
+
+//     for(var row=0;row<table.length;row++){
+//         for(var col=0;col<table[row].length;col++){
+//             table[row][col] = row*col;
+//         }
+//     }
+//     var product = table[2][4];
+//     console.log(product);
+
+    /*
+    内置对象方法：
+    1.确定使用的方法是构造函数的静态方法还是原型方法
+    2.查看mdn该方法的相关定义.作用
+    3.查看该方法的相关参数
+    （1）如果包含了回调函数，还需要回调函数的相关参数
+    （2）哪些参数是必须的，哪些参数是可选的
+    4.该方法执行的得到的返回结果
+    */
+
+
+/*
+    Arr.forEach(callback,thisArg) 
+    callback是针对数组每个数组元素所应用的回调函数，v
+    alue表示数组元素的元素值，
+    index代表数组元素的索引值，
+    arr表示备操作的数组，
+    thisArg表示回调函数内部的this指向
+*/
+    // var arr1 = ['a','b','c'];
+    // var obj1={x:'d'};
+    // arr1.forEach(function(value,index,arr){
+    //     console.log(value,index,arr);
+    //     this[value] = value;
+    // },obj1);
+    // console.log(obj1);
+
+/*
+    Arr.every(callback，thisArg)  与some（）相反
+    测试数组的每一个元素执行回调函数的结果。
+    全通过为true  有不通过的就是false
+*/
+    // var arr1=[10,20,30,40];
+    // var result = arr1.every(function(value){
+    //     return value>5;
+    // })
+    // console.log(result);
+
+/*
+Arr.map()创建一个新数组，其结果是
+该数组中每一个元素都调用一个函数后重新组成新的数组。
+*/
+    // var arr1=[10,20,30,40];
+    // var result1 = arr1.some(function(value){
+    //     return value<10;
+    // })
+    // var result2 = arr1.map(function(value){
+    //     return value*2;
+    // });
+    // console.log(result2);
+
+/*
+Arr.filter()
+生成新的数组结构，
+并且数组元素满足特定的过滤条件
+*/
+        // var arr1 = [10,20,30,40];
+        // var result3 = arr1.filter(function(value){
+        //     return value >= 20;
+        // });
+        // console.log(result3);
+/*
+拓展
+*/
+    var arr2=['agvd','sf zvsf '];
+    arr2.filterspace = function(){
+        var arr1 = this;
+        var result = arr1.map(function(value){
+            return value.trim();
+        });
+        return result;
+    };
+    console.log(arr2);
+
+</script>
+</html>

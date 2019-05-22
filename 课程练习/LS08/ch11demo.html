@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //立即执行
+    // (function min(a,b){
+    //         return a>b?a:b;
+    //     }(2,1));
+
+        //ppt
+        for(var i =0;i<3;i++){
+            (function(j){
+                setTimeout(function(){
+                console.log(new Date,j);
+            },1000*i);
+            })(i);
+        }
+
+        //课上
+        for(var i =0;i<3;i++){
+            setTimeout(function(){
+                console.log(new Date(),i);
+            },1000*i)
+        }
+        //等价于以下函数
+        setTimeout(function(){
+            console.log(new Date(),i);
+        },1000*0);
+        
+        //
+    </script>
+</body>
+</html>

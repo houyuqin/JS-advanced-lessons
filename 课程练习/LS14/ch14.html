@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/tab.css">
+	
+</head>
+<body>
+	<div class="logincontainer" id=" " style="margin: 0 auto;">
+		<div class="tabtitle">
+			<div class="login-tab saomalogin active">扫码登录</div>
+			<div class="login-tab userlogin">帐户登录</div>
+		</div>
+		<div class="tab-item">
+			<img src="img/show.png">
+		</div>
+
+
+		<div class="tab-item" style="display: none;">
+			<div class="inputcontainer">
+				<label for="loginname" class="login-label"></label>
+				<input id="loginname" type="text" class="itxt" name="loginname" tabindex="1" autocomplete="off" placeholder="邮箱/用户名/已验证手机">
+			</div>
+			<div class="inputcontainer">
+				<label for="loginname" class="login-label pwd"></label>
+				<input id="pwd" type="text" class="itxt" name="pwd" tabindex="1" autocomplete="off" placeholder="密码">
+			</div>
+			<div class="loginbtn">
+				<a href="javascript:;" class="btn-img btn-entry" id="loginsubmit" tabindex="6" clstag="pageclick|keycount|201607144|3" style="outline: rgb(109, 109, 109) none 0px;">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
+			</div>
+		</div>
+		
+    </div>
+</body>
+<script>
+    (function(d,w){
+        var titleList=d.getElementsByClassName("login-tab");
+        var itemList=d.getElementsByClassName("tab-item");
+
+        for(var i=0;i<titleList.length;i++){
+            (function(j){
+                titleList[j].onmouseover = function(){
+                    for(var m=0;m<titleList.length;m++){
+                        if(m==j){
+                            titleList[j].classList.add("active");
+                            itemList[j].style.display='block';
+                        }
+                        else{
+                            titleList[m].classList.remove("active");
+                            itemList[m].style.display='none';
+                        }
+                    }
+                }
+            })(i)
+
+        }
+    })(document,window);
+
+    /*(function(d,w){
+        var titleList=d.getElementsByClassName("login-tab");
+        var itemList=d.getElementsByClassName("tab-item");
+        for(var i=0;i<titleList.length;i++){//每次循环都会执行这个函数的作用域
+            (function(j){
+                titleList[j].onmouseover=function(){
+                for(var m=0;m<titleList.length;m++)
+                    {
+                        if(m==j){
+                            titleList[j].classList.add("active");
+                            itemList[j].style.display='block';
+                        }
+                        else{
+                            titleList[m].classList.remove("active");
+                            itemList[m].style.display='none';
+                        }
+                    }
+                }
+            })(i)
+            
+            
+        }
+    })(document,window)*/
+
+</script>
+</html>

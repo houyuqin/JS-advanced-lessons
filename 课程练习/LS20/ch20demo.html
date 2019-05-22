@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //正则表达式
+    // var reg1 = /[bcf]at/gi;
+    // var reg2 = new RegExp(/[bcf]at/,"gi");
+    // var reg3 = new RegExp("[bcf]at",'gi');
+    // var str1 = "bat cat fat Fat difijfi";
+    // console.log(str1.match(reg1));
+
+    // var reg1 = /ab/gi;
+    // var str1 = "abcdefg";
+    // console.log(str1.replace(reg1,"x"));
+
+/*字符分类：\d：匹配阿拉伯数字 \D匹配非阿拉伯数字
+    \w匹配所有的字母数字下划线【a-zA-Z0-9】
+         \W 匹配所有的非数字字母下划线的字符 %等
+         \s匹配空白符（换页符，换行符，空格，制表符）
+*/
+    // var reg1 = /a\d/gi;
+    // var str1 = "a1bfa2ffss";
+    // console.log(str1.replace(reg1,"x"));
+
+/*字符的集合
+*/
+    // var reg = /[abc]\d/gi;
+    // var str = "a1b2c3d4f5t6";
+    // console.log(str.replace(reg,"x"));
+
+    // var reg2 = /[abc][0-9]/gi;//第一个字符abc，第二个字符0-9的
+    // var str2 = "a1b2c3f4tb";
+    // console.log(str2.replace(reg2,"x"));
+
+//匹配开头是数字 第二个是字符a-f 第三个字符是空格
+//     var reg= /\d[abcdef]\s/gi;
+//     var str = "2a 3b 8f skhn";
+//     console.log(str.replace(reg,"x"));
+
+//三种定义方式
+//     var reg1 = /\da/gi;
+//     var reg2 = new RegExp(/\da/,'gi');
+//     var reg3 = new RegExp('\da',"gi");
+    
+//用小括号包裹的规则内容，称之为分组
+//数组第一个是正则表达式匹配结果，第二个是分组的匹配结果
+    // var reg1 = /(ss\d)a/gi;
+    // var str1 = "ss1abcdefg";
+    // var s = reg1.exec(str1);
+    // console.log(s);
+/*
+    \1表示引用的表达式中第一个分组 等价于/(\dss)a(\dss)/gi
+*/
+    // var reg1 = /(\dss)a\1/gi;
+    // var reg3 = /(ab){3}/gi;
+    // var str = "abababcdef";
+    // console.log(str.replace(reg3,"x"));
+
+/*
+match()匹配 匹配成功返回匹配成功部分的数组  不成功返回null
+*/
+    // var reg = /\dss\s/gi;
+    // var str = "1ss hello";
+    // console.log(str.match(reg));
+
+//压缩文件格式的正则表达式
+    /(.*)\.(rar|zip|7zip|tgz)$/
+
+    var reg2=/^#[a-fA-F0-9]{6}$/;
+      /*
+         ^#表说必须以#开头
+         [a-fA-F0-9] 从[]集合中取任意一个字符   a-fA-F0-9
+
+         {6}表示前面的字符出现6次
+
+         $还是以前面的集合中的任一字符结尾
+      */
+</script>
+</html>
