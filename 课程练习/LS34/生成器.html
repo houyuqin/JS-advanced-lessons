@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // //function后加* 表示生成器  生成遍历器对象
+    // function* helloGenerator(){
+    //     yield "hello";
+    //     yield "world";
+    //     return "ending";
+    // }
+
+    // let iterator1 = helloGenerator();
+    // console.log(iterator1.next());
+    // console.log(iterator1.next());
+    // console.log(iterator1.next());
+
+    // let myiterator = {};
+    // myiterator[Symbol.iterator] = function* (){
+    //     yield {name:"zhangsan"};
+    //     yield {age:20};
+    //     return ;
+    // }
+    // for(let i of myiterator){
+    //     console.log(i);
+    // }
+
+    /*
+        Promise将异步操作写成同步的操作
+        resolve一步操作成功时的标志，对应then第一个函数
+        reject异步操作失败时的标志，对应then第二个函数
+        .done() 捕获catch的异常
+    */
+    // setTimeout(function(){
+    //     console.log("world");
+    // },3000);
+    // console.log("hello");
+
+    new Promise(function(resolve,reject){
+        setTimeout(function(){
+            console.log("world");
+            resolve();//异步执行结束,执行then中第一个参数
+        },3000)
+    }).then(function(){
+        console.log("hello");
+        console.log(val);
+    },function(){
+        
+    }).catch(function(e){
+        console.log(e);//捕获异常
+       
+    }).finally(function(){
+      console.log("finally 总会执行。finally执行结束")  
+    })
+
+</script>
+</html>

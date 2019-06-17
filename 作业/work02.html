@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function consist(arr){
+            var brr = new Array(arr.length);
+            for(var i in arr){
+                switch(typeof(arr[i])){
+                    case 'string':
+                        brr[i] = arr[i].trim();
+                        break;
+                    case 'boolean':
+                        brr[i] = Number(arr[i]);
+                        break;
+                    case 'number':
+                        brr[i] = arr[i].toFixed(2);
+                        break;
+                    default:
+                        break;
+                }
+            }
+                console.log(brr);
+        }  
+        var arr = new Array(true," abcd ",22," hy q",36.265);
+        consist(arr);  
+    </script>    
+</body>
+</html>

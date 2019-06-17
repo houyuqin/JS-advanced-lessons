@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+//     let arr1 =[0,1,2,3,4,5];
+//     arr1.copyWithin(0,3,5);
+
+//     /*
+//     find()
+//     */
+//     let arr2=[10,20,30,40,50];
+//     arr2.find(function(element){
+//         return element >19;
+//     })
+//     console.log(el);
+//     /*
+//     findIndex()
+//     返回符合条件的第一个元素的索引值
+//     */
+//     let elIndex = arr2.findIndex(function(element){
+//         return element;
+//     })
+//     console.log(elIndex);
+
+// /*
+//     fill(value,填充的起始位置，填充的结束位置)
+// */
+//     let arr3 = [1,2,3,4];
+//     arr3.fill(0,0,3);
+
+
+//     /*
+//     keys() 获取到的是数组的索引0,1,2
+//     values() 获取到的数组的元素值
+//     可以使用for。。。of进行遍历
+//     */
+
+// /*
+//     ES6简化写法  不兼容ie
+// */
+//     var username = "lily";
+//     var person= {
+//         username,
+//         show(){
+//             console.log(this.username);
+//         }
+//     }
+//     person.show();
+
+//     /*
+//     如果属性名希望是个变量
+
+//     Object.is(value1,value2)判断value1和value2是否相等
+
+//     object.assign（）
+
+//     */
+//     let target ={"username":"zhangsan"};
+//     let source1 = {"age":20};
+//     let source2 = {"sex":"male"};
+//     console.log(Object.assign(target,source1,source2));
+    
+    /*
+
+    */
+    let obj1 = {
+        "username":"zhangsan",
+        "age":20,
+        "sex":"male"
+    };
+    let values = Object.values(obj1);
+    for(var i of values){
+        console.log(i);
+    }
+
+    
+</script>
+</html>

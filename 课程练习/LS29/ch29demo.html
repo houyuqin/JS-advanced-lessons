@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+// //ES5
+//     var obj = {
+//         objName:"obj1",
+//         showName:function(){
+//             setTimeout(function(){
+//                 var that = this;
+//                 console.log(that.objName);
+//             }.bind(this),1000);
+//         }
+//     }
+//     obj.showName();
+
+// /*
+// 存在函数嵌套，this指向不正确时，解决方案
+// 1.通过that转存
+// 2.bind硬绑定
+// 3.apply call
+// 4.通过箭头函数（）=>
+// */
+//     var obj = {
+//         objName:"obj1",
+//         showName:function(){
+//                 setTimeout(()=>{
+//                     console.log(this);
+//                     console.log(this.objName);
+//                 },1000);
+//         }
+//     }
+    
+   
+    /*
+    1.带有默认值的参数默认是声明的，
+        在函数内部不能再重复定义
+    2.带有默认值的参数需要写到没有默认值的参数后面
+
+    */
+    function fn1(x,y=2,z=3){
+        return x + y + z;
+    }
+    console.log(fn1());//NAN
+    console.log(fn1(1,4));//8  1+4+3
+    console.log(fn1(1,4,6));//11  1+4+6
+
+/*
+剩余操作
+可以接受剩下的所有实参
+必须放在参数的最后位置
+
+剩余操作符相应变量最后得到一个数组
+*/
+    function fn2(x,z,...y){
+        console.log(x,z,y);
+
+    }
+    fn2(1,2,4,3,5);
+    //arguments接收到的是元素 最后形成数组
+    function fn3(){
+        console.log(arguments);
+    }
+    fn3(1,2,3,4,5);
+    fn3(1,[2,3,4,5]);
+
+    
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = "赵钱孙李周吴郑王冯陈楮卫蒋沈韩杨朱秦尤许何吕施张孔曹严华金魏陶姜";
+        function search(surname){
+            var point = str.indexOf(surname);
+            if(point >= 0){
+                console.log(point);
+                if(point>0){
+                    var str1 = str.substr(0,point);
+                    console.log(str1);
+                }
+                else{
+                    console.log("该姓氏之前的姓氏不存在");
+                }
+            }
+            else{
+                console.log("该姓氏不存在");
+            }
+            
+
+        }
+        var surname0 = '李';
+        search(surname0);
+        var surname1 = '侯';
+        search(surname1);
+    </script>
+</body>
+</html>

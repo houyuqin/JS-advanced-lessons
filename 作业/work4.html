@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Foo(userName,age){
+        this.userName = userName;
+        this.age = age;
+    }
+    Foo.prototype.sayHello = function(){
+        console.log(this.userName + " say hello");
+    }
+    var f1 = new Foo("zhang",20);
+    Object.prototype.sayHello2 = function(){
+        console.log("say hi");
+    }
+    var f2 = new Foo("zhang2",21);
+    /*
+    关系一：f1对象的__proto__属性与其构造函数Foo的prototype属性，指向相同，
+    所以通过Foo实例化得到的对象可以去Foo.protype上查找方法，例如sayHello方法
+    */
+    console.log(f1.__proto__ == Foo.prototype);
+
+    /*
+    关系二：f2对象的__proto__属性的__proto__属性Object的prototype属性指向相同，
+    所以通过函数实例化得到的对象可以去Object.prototype上寻找方法
+    */
+    console.log(f2.__proto__.__proto__ == Object.prototype);
+
+    /*
+    关系三：Object.prototype的原型为空，任何函数追溯到object的原型都是null
+    */
+    console.log(f2.__proto__.__proto__.__proto__ == Object.prototype.__proto__);
+    console.log(f2.__proto__.__proto__.__proto__);//null
+    console.log(Object.prototype.__proto__);//null
+
+    /*
+    关系四：函数的prototype属性用函数名.prototype来访问
+    Foo.prototype中定义的可以为Foo及其实例化得到的对象使用，如sayHello函数
+    */
+    console.log(Foo.prototype == Foo.prototype);
+    console.log(f1.__proto__.sayHello);
+
+    /*
+    关系五：函数的prototype的constructor属性是它本身
+    */
+    console.log(Foo.prototype.constructor == Foo);
+
+    /*
+    关系六：对象的__proto__属性指向它的原型对象,对象的__proto__属性
+    与它的原型对象即prototype相等。
+    */
+    console.log(Foo.__proto__ == Function.prototype);
+
+    /*
+    关系七：当访问一个对象的属性时，如果该对象内部不存在这个属性，
+    那么就会去它的__proto__属性所指向的那个对象里找。
+    当Function内部不存在要查找的属性时，可以去Object的原型对象中查找
+    例如sayHello2函数
+    任意对象的原型链最顶端都是Object.prototype，Object.prototype的原型是null
+    */
+    console.log(Function.prototype.__proto__ == Object.prototype);
+
+    var o1 = new Object();
+    var o2 = new Object();
+    Object.prototype.x = 20;
+    Function.prototype.a = 10;
+    /*
+    关系八：Object实例化得到的对象的__proto__属性指向的原型对象
+    Object实例化得到的对象找不到的属性可以去Object.prototype里面找，如x
+    */
+    console.log(o1.__proto__ == Object.prototype);
+
+    /*
+    关系九：Object的prototype属性即为Object.prototype
+    Object.prototype中定义的可以为Object及其实例化得到的对象使用，如x
+    */
+    console.log(Object.prototype == Object.prototype);
+    console.log(o1.__proto__.x);
+
+    /*
+    关系十：函数的prototype的constructor属性是它本身
+    */
+    console.log(Object.prototype.constructor == Object);
+
+    /*
+    关系十一：访问一个Object的属性时，如果object内部不存在这个属性
+    那么就会去它的__proto__属性所指向的Function.prototype中找
+    例如a
+    */
+    console.log(Object.__proto__ == Function.prototype);
+    console.log(Object.a);
+    /*
+    关系十二：Function的prototype属性即为Function.prototype
+    Function.prototype中定义属性的可以为Function及其实例化得到的对象使用
+    */
+    console.log(Function.prototype == Function.prototype);
+
+    /*
+    关系十三：函数的prototype的constructor属性是它本身
+    */     
+    console.log(Function.prototype.constructor == Function);
+
+    /*
+    关系十四：Function中不存在的属性可以去它的上一级Function.prototype中查找
+    例如a
+    */ 
+    console.log(Function.__proto__ == Function.prototype);
+    console.log(Function.a);
+</script>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+//1.	使用symbol方法生成的symbol变量具有唯一性  指向不可改变
+    // let s1 = Symbol("s1");
+    // let s2 = Symbol("s1");
+    // console.log(s1==s2);//false
+
+//
+    // let s1 = Symbol("s1");
+    // let obj = {};
+    // obj[s1] = "hello";
+
+    // let obj1 ={
+    //     [s1]:"world"//用作属性使用【】
+    // }
+
+    // //作对象的属性，表示唯一性
+    // let obj2 = {};
+    // let s2 = Symbol("s2");
+    // Object.defineProperty(obj2,s2,{
+    //     value:2
+    // });
+
+    // Object.getOwnPropertySymbols(obj2);
+
+    // let f1 = Symbol("f1");
+    // console.log(Symbol.for("f1") == f1);//false
+    // console.log(Symbol.for("f1")==Symbol.for("f1"));//true
+
+//set
+    // let s1 = new Set([1,2,3,"hello",4,5,6,1,2,3]);
+    // console.log(s1.values());
+    // for(let j of s1.values()){
+    //     console.log(j);
+    // }
+
+    // console.log(s1);
+    // for(let i of s1){
+    //     console.log(i);
+    // }
+    // console.log(s1.size);//7
+    // s1.add(1);
+    // s1.delete("hello");
+    // s1.has(5);
+    // console.log(s1);//1,2,3,4,5,6
+//map
+    // let m1 = new Map();
+    // let o ={"x":1};
+    // m1.set(o,2);
+    // console.log(m1);
+    // for(let i of m1){
+    //     console.log(i);
+    // }
+    // m1.set(o,2);
+    // m1.get(o);
+    // m1.has(o);
+    // m1.delete(o);
+
+    let m1 = new Map([
+        ["username","zhangsan"],
+        ["age",20]
+        ]);
+    for(let i of m1){
+        console.log(i);//输出键值对
+    }
+    for(let j of m1){
+        console.log(j[0]);
+    }
+
+</script>
+</html>

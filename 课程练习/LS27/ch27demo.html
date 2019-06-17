@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <span id=title""></span>
+    <img src="1.jpg" alt="">
+    <button id="btn">btn</button>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+//同步执行
+    // if(true){
+    //     var i=0;
+    // }
+    // console.log(i);
+    // for(var m=0;m<10;m++){
+    //     console.log(m);
+    // }
+//异步执行
+//分支代码不会影响主程序执行
+    // var username = "zhangsan";
+    // var age = 20;
+    // document.onclick=function(){
+    //     alert(age);
+    // }
+    // console.log(username);
+
+    // var interval=setInterval(function(){
+    //     console.log(new Date());
+    // },2000);
+    // var time = new Date();
+    // console.log(time);
+
+/*
+    $.get向指定地址的后端程序发起get请求
+    后端程序收到请求，响应一个字符串
+    ajex请求成功的回调函数可以接受后端程序响应的内容
+    将网页文件和后端程序文件，放置到服务器软件上
+
+    wamperver
+*/
+    // $.get("./server.php",function(){
+    //     console.log("hello world");
+    // });
+    // $.get("./server.php",function(data){
+    //     $("#titlt").html(data);
+    // })
+
+/*
+     ajax异步请求从后端请求数据，局部刷新页面
+     XMLHttpRequst js原生发起ajax请求时的对象
+
+     jquery ajax对XMLHttpRequset做了封装
+*/
+    $("#btn").click(function(){
+        $.ajax({
+            url:"./server.php",
+            type:"get",
+            sucess:function(data){
+                $("#title").html(data);
+            },
+            error:function(err){
+
+            }
+        })
+        console.log("hello");
+    })
+
+
+</script>
+</html>

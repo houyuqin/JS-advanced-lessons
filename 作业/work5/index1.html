@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css" />
+</head>
+<body>
+        <div class="jsjy_LL" id="picList" style="position:relative;left: 50%;margin-left: -175px;">
+            <div style="position:absolute">
+                <a href="#" target=_blank><img src="./img/1.jpg" class="ysjy_img" width="350px" height="200px" /></a>
+                <p class="jsjy_LL_title">我校召开2018-2020届家长委员会大会</p>
+            </div>
+            <div style="position:absolute">
+                <a href="#" target=_blank><img src="./img/2.jpg" class="ysjy_img" width="350px" height="200px" /></a>
+                <p class="jsjy_LL_title">传递五四精神 铸就青春华章——我校举行纪...</p>
+            </div>
+            <div style="position:absolute">
+                <a href="#" target=_blank><img src="./img/3.png" class="ysjy_img" width="350px" height="200px" /></a>
+                <p class="jsjy_LL_title">2019十大最受欢迎班主任</p>
+            </div>
+            <ul style="position:absolute;" id="itemlist">                
+                <li class="active">
+                    <a href="##">1</a>
+                </li>
+                <li>
+                    <a href="##">2</a>
+                </li>
+                <li>
+                    <a href="##">3</a>
+                </li>
+            </ul>
+        </div>
+</body>
+<script type="text/javascript">
+    (function(w,d){
+        function Slider(picList, itemlist, time){
+            this.picList = document.getElementById(picList);
+            this.itemlist = document.getElementById(itemlist);
+            this.time = time || 1500;
+        }
+
+        Slider.prototype.show = function(callback){
+            this.callback = callback || function(){};
+            this.picList.style.opacity = 1;
+            var items = this.itemlist.getElementsByTagName("li");
+            var pictures = this.picList.getElementsByTagName("div");
+            var that = this;
+        
+            //自动翻页
+            var t;
+            var n = 0;
+            function pages(n){
+                t = setInterval(function(){
+                    if(items.length <= n){
+                        n = 0;
+                    }
+                    for(var i=0; i<items.length;i++){
+                        pictures[i].style.display = "none";
+                        items[i].className = "";
+                    }
+                    pictures[n].style.display = "block";
+                    items[n].className = "active"; 
+                    n++;
+                }, that.time);
+            }
+            pages(n);
+
+            //数字变换
+            for(var i = 0; i < items.length; i++){
+                var j;
+                (function(j){
+                    items[j].onmouseover = function(){
+                        clearInterval(t);
+                        for(var m = 0; m < items.length; m++){
+                            items[m].classList = "";
+                            pictures[m].style.display = "none";
+                        }
+                        items[j].className = "active";
+                        pictures[j].style.display = "block";
+                    }
+                    
+                    items[j].onmouseleave = function(){ 
+                        n = j;
+                        pages(n);
+                    }
+                })(i);
+            }
+        }
+    window.Slider = Slider;
+    document.Slider = Slider;
+    })(window, document);
+
+    var Slider = new Slider("picList", "itemlist");
+    Slider.show();
+</script>
+<ml>
